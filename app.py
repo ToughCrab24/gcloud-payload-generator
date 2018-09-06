@@ -33,7 +33,7 @@ def main(purchase_id, account_id, customer_id, product_id, enabled):
       "subscription": "projects/myproject/subscriptions/mysubscription"
     }
 
-    click.secho("{}".format(json.dumps(payload)), fg='green')
+    click.secho(json.dumps(payload, sort_keys=True, indent=2), fg='green')
 
 if __name__ == "__main__":
     main()
