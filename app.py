@@ -33,7 +33,16 @@ def main(purchase_id, account_id, customer_id, product_id, enabled):
       "subscription": "projects/myproject/subscriptions/mysubscription"
     }
 
-    click.secho(json.dumps(payload, sort_keys=True, indent=2), fg='green')
+    output = json.dumps(payload, sort_keys=True, indent=2)
+
+    click.secho(output, fg='green')
+
+    try:
+      import os
+      os.system("echo '%s' | pbcopy" % output)
+      click.secho('Payload copied to your clipboard!', fg='green')
+    except Exception:
+      pass
 
 if __name__ == "__main__":
     main()
