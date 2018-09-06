@@ -18,10 +18,11 @@ def main(purchase_id, account_id, customer_id, product_id, enabled):
       "product_id": product_id,
       "enabled": enabled,
     }
-    # import pdb; pdb.set_trace()
+
     pubsub_json = json.dumps(pubsub).encode('ascii')
 
     b64encoded = base64.b64encode(pubsub_json)
+
     payload = {
       "message": {
         "attributes": {
